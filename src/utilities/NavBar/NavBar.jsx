@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-// import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion'
 
 function NavBar(){
     const Links = [
-        {name: 'One', Link: '/One'},
+        {name: 'One', Link: '/home'},
         {name: 'Two', Link: '/Two'},
         {name: 'Three', Link: '/Three'},
         {name: 'Four', Link: '/Four'},
@@ -64,14 +64,16 @@ function NavBar(){
                         whileHover={{scale: 1.05, originX: 0}}
                         whileTap={{ scale: 0.95}}
                         >
-                            <button
+                            <Link
+                            to={link.Link}
                             className="text-gray-800 hover:text-gray-400"
                             onClick={()=> {
+                                // navigate(link.Link)
                                 handleItemClick()
                             }}
                             >
                                 {link.name}
-                            </button>
+                            </Link>
                         </motion.li>
                     ))}
                 </motion.ul>
